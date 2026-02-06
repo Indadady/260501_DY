@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- [SNS 공유 미리보기 설정] -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="남해안 2박 3일 명품 미식 투어 (사천/여수/순천)">
+    <meta property="og:description" content="5~6월 황금연휴 출발! 삼천포 회정식, 한일관 한정식, 꼬막정식 포함. 보리암부터 순천만정원까지.">
+    <!-- 썸네일은 웹페이지 메인 이미지 사용 -->
+    <meta property="og:image" content="https://tong.visitkorea.or.kr/cms/resource/62/2364862_image2_1.jpg">
+    <meta property="og:site_name" content="투어메이커">
+
+    <title>투어메이커 - 남해안 2박 3일 여행</title>
+
+    <!-- 구글 애널리틱스 (필요시 ID 수정) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .text-primary { color: #006494; }
+        .bg-primary { background-color: #006494; }
+        
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e8f0;
+            z-index: 0;
+        }
+        
+        html { scroll-behavior: smooth; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        /* iframe 반응형 처리 */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 비율 */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
+        <div class="max-w-md mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- 로고 영역 (지정된 URL 사용) -->
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" 
+                 alt="투어메이커 로고" class="h-8 w-auto">
+            <a href="tel:010-3841-1361" class="text-xs font-bold text-primary border border-primary px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition">
+                <i class="fas fa-phone-alt mr-1"></i>빠른 문의
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-2xl pb-24 pt-16">
+
+        <!-- Hero Section -->
+        <header class="relative h-80 overflow-hidden">
+            <!-- 이미지 교체: 여수/남해 느낌 -->
+            <img src="https://tong.visitkorea.or.kr/cms/resource/62/2364862_image2_1.jpg" 
+                 alt="여수 밤바다" class="w-full h-full object-cover transform hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full p-6 text-white">
+                <div class="flex items-center space-x-2 mb-2">
+                    <span class="bg-blue-600 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">남해안 일주</span>
+                    <span class="bg-white/20 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded">2박 3일</span>
+                </div>
+                <h1 class="text-3xl font-bold leading-tight mb-2 drop-shadow-md">남해의 봄과<br>낭만 미식 여행</h1>
+                <div class="flex items-center text-sm opacity-90 font-light">
+                    <i class="far fa-calendar-alt mr-2"></i> 5월 ~ 6월 (주말 포함)
+                </div>
+            </div>
+        </header>
+
+        <!-- Summary Info -->
+        <section class="px-5 relative z-10 -mt-8 mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-5 grid grid-cols-3 gap-2 text-center border border-gray-100">
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mb-2 text-blue-600">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <span class="text-xs text-gray-400">출발</span>
+                    <span class="font-bold text-sm">도계 07:00</span>
+                </div>
+                <div class="flex flex-col items-center border-l border-r border-gray-100">
+                    <div class="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center mb-2 text-indigo-600">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <span class="text-xs text-gray-400">식사</span>
+                    <span class="font-bold text-sm">특식 포함</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center mb-2 text-green-600">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <span class="text-xs text-gray-400">코스</span>
+                    <span class="font-bold text-sm">사천/여수/순천</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 1 Itinerary -->
+        <section class="px-5 mb-8">
+            <div class="flex items-center mb-6 sticky top-16 bg-white/95 backdrop-blur py-2 z-20 border-b border-gray-50">
+                <div class="bg-blue-600 text-white font-bold rounded-lg px-3 py-1.5 text-sm mr-3 shadow-md">
+                    1일차
+                </div>
+                <h2 class="text-lg font-bold text-gray-800">사천 & 남해 보리암</h2>
+            </div>
+
+            <div class="relative pl-4">
+                <div class="timeline-line"></div>
+
+                <!-- Item: Departure -->
+                <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-blue-100 text-blue-600 rounded-full border-4 border-white shadow-sm flex items-center justify-center z-10">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <div>
+                        <span class="text-blue-600 font-bold text-sm block mb-1">07:00</span>
+                        <h3 class="font-bold text-lg text-gray-800">도계 출발</h3>
+                        <p class="text-sm text-gray-500">집결 후 인원체크 및 남해안으로 이동</p>
+                    </div>
+                </div>
+
+                <!-- Item: Lunch -->
+                <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-orange-100 text-orange-500 rounded-full border-4 border-white shadow-sm flex items-center justify-center z-10">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover-card">
+                        <h3 class="font-bold text-gray-800 mb-1">삼천포 도착 및 중식</h3>
+                        <div class="flex items-center gap-2 mt-2 bg-orange-50 p-2 rounded-lg">
+                            <span class="px-2 py-0.5 bg-white text-orange-600 text-[10px] font-bold rounded border border-orange-100 shadow-sm">MENU</span>
+                            <span class="text-sm text-gray-700">생선구이 정식 (또는 한식)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item: Cable Car -->
+                <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-blue-600 text-white rounded-full border-4 border-white shadow-md flex items-center justify-center z-10">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 group hover-card">
+                        <div class="relative h-40 overflow-hidden">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.lWmujzXf4ErVDM2uux0RqAHaFj?w=474&h=379&c=7&p=0" 
+                                 alt="사천 바다케이블카" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-gray-800">사천 바다케이블카</h3>
+                            <p class="text-sm text-gray-600 mt-2">
+                                산-바다-섬을 잇는 국내 최장 구간 케이블카.<br>한려해상의 절경을 한눈에!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item: Boriam -->
+                <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-green-100 text-green-600 rounded-full border-4 border-white shadow-sm flex items-center justify-center z-10">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover-card">
+                        <h3 class="font-bold text-gray-800 mb-1">남해 보리암</h3>
+                        <p class="text-sm text-gray-600 mt-1">
+                            금산 절벽 위, 남해 최고의 기도처이자 뷰 포인트.<br>탁 트인 남해바다 조망.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item: Dinner & Hotel -->
+                <div class="relative pl-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-indigo-600 text-white rounded-full border-4 border-white shadow-md flex items-center justify-center z-10">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-100 hover-card mb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-indigo-900">석식: 회정식</h3>
+                            <span class="text-xs bg-white text-indigo-600 px-2 py-1 rounded font-bold border border-indigo-200">MENU</span>
+                        </div>
+                        <p class="text-sm text-indigo-700">싱싱한 남해 활어회와 해산물</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="font-bold text-gray-800"><i class="fas fa-hotel mr-2 text-indigo-500"></i>삼천포 숙박</h3>
+                        <p class="text-sm text-gray-500 mt-1">편안한 휴식 (모텔급 이상)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="h-3 bg-gray-100 mb-8 border-t border-b border-gray-200"></div>
+
+        <!-- Day 2 Itinerary -->
+        <section class="px-5 mb-8">
+            <div class="flex items-center mb-6 sticky top-16 bg-white/95 backdrop-blur py-2 z-20 border-b border-gray-50">
+                <div class="bg-blue-600 text-white font-bold rounded-lg px-3 py-1.5 text-sm mr-3 shadow-md">
+                    2일차
+                </div>
+                <h2 class="text-lg font-bold text-gray-800">낭만 여수 완전정복</h2>
+            </div>
+
+            <div class="relative pl-4">
+                <div class="timeline-line"></div>
+
+                 <!-- Item: Breakfast & Move -->
+                 <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-orange-100 text-orange-500 rounded-full border-4 border-white shadow-sm flex items-center justify-center z-10">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="font-bold text-gray-800">조식(한식) 후 여수 이동</h3>
+                        <p class="text-sm text-gray-600 mt-1">이순신대교 경유 (광양제철소 뷰)</p>
+                    </div>
+                </div>
+
+                <!-- Item: Yacht Tour (Changed from Cruise) -->
+                <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-blue-600 text-white rounded-full border-4 border-white shadow-md flex items-center justify-center z-10">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 group hover-card">
+                        <div class="relative h-40 overflow-hidden">
+                            <!-- 요트 이미지로 변경 -->
+                            <img src="https://res.klook.com/images/fl_lossy.progressive%2Cq_65/c_crop%2Cx_0%2Cy_697%2Ch_697%2Cw_2126/activities/wj6q3es3hcythirphtpo/YeosuYachtSailingExperienceonaCatamaran.jpg" 
+                                 alt="여수 요트 투어" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute bottom-3 right-3 bg-blue-600/80 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm">
+                                <i class="fas fa-star mr-1"></i>PREMIUM
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-gray-800">여수 럭셔리 요트 투어</h3>
+                            <p class="text-sm text-gray-600 mt-2">
+                                낭만 가득한 여수 바다를 가르는 특별한 경험.<br>프라이빗한 요트에서 즐기는 힐링 타임.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item: Lunch -->
+                <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-orange-100 text-orange-500 rounded-full border-4 border-white shadow-sm flex items-center justify-center z-10">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover-card">
+                        <h3 class="font-bold text-gray-800 mb-1">여수 중식</h3>
+                        <div class="flex items-center gap-2 mt-2 bg-orange-50 p-2 rounded-lg">
+                            <span class="px-2 py-0.5 bg-white text-orange-600 text-[10px] font-bold rounded border border-orange-100 shadow-sm">MENU</span>
+                            <span class="text-sm text-gray-700 font-bold">갈치조림 정식 (남도 별미)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item: Odongdo & Hotel -->
+                <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-green-100 text-green-600 rounded-full border-4 border-white shadow-sm flex items-center justify-center z-10">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">오동도 관람</h3>
+                        <p class="text-sm text-gray-600 mb-4">동백나무 숲길 산책 및 음악분수</p>
+                        
+                        <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100 flex items-center">
+                            <i class="fas fa-hotel text-indigo-500 mr-2"></i>
+                            <span class="text-sm font-bold text-indigo-900">여수 MJ 호텔 체크인 (예정)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item: Dinner & Night Tour -->
+                <div class="relative pl-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-purple-600 text-white rounded-full border-4 border-white shadow-md flex items-center justify-center z-10">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 hover-card mb-3">
+                        <h3 class="font-bold text-gray-800 mb-1 text-lg">석식: 한일관 (특식)</h3>
+                        <div class="flex items-center gap-2 mt-2 bg-purple-50 p-2 rounded-lg">
+                            <span class="px-2 py-0.5 bg-white text-purple-600 text-[10px] font-bold rounded border border-purple-100 shadow-sm">PREMIUM</span>
+                            <span class="text-sm text-gray-700">남도 해산물 한정식의 진수</span>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 text-white p-4 rounded-xl">
+                        <h3 class="font-bold"><i class="fas fa-star text-yellow-400 mr-2"></i>여수 야경 투어</h3>
+                        <p class="text-sm text-gray-300 mt-1">여수 밤바다의 낭만을 즐기는 시간</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="h-3 bg-gray-100 mb-8 border-t border-b border-gray-200"></div>
+
+        <!-- Day 3 Itinerary -->
+        <section class="px-5 mb-8">
+            <div class="flex items-center mb-6 sticky top-16 bg-white/95 backdrop-blur py-2 z-20 border-b border-gray-50">
+                <div class="bg-blue-600 text-white font-bold rounded-lg px-3 py-1.5 text-sm mr-3 shadow-md">
+                    3일차
+                </div>
+                <h2 class="text-lg font-bold text-gray-800">순천 국가정원 & 복귀</h2>
+            </div>
+
+            <div class="relative pl-4">
+                <div class="timeline-line"></div>
+
+                 <!-- Item: Breakfast -->
+                 <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-orange-100 text-orange-500 rounded-full border-4 border-white shadow-sm flex items-center justify-center z-10">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="font-bold text-gray-800">기상 및 조식 (한식)</h3>
+                    </div>
+                </div>
+
+                <!-- Item: Suncheon Garden (Image Replaced with Video) -->
+                <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-green-600 text-white rounded-full border-4 border-white shadow-md flex items-center justify-center z-10">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 group hover-card">
+                        <!-- 영상으로 대체 (V8takQfBJgY) -->
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/V8takQfBJgY" 
+                                    title="순천만국가정원 홍보영상" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-gray-800">순천만 국가정원 박람회</h3>
+                            <p class="text-sm text-gray-600 mt-2">
+                                5~6월 꽃들이 만개하는 대한민국 제1호 국가정원.<br>영상으로 먼저 만나보세요!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item: Lunch -->
+                <div class="relative pl-10 pb-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-orange-100 text-orange-500 rounded-full border-4 border-white shadow-sm flex items-center justify-center z-10">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover-card">
+                        <h3 class="font-bold text-gray-800 mb-1">순천 중식</h3>
+                        <div class="flex items-center gap-2 mt-2 bg-orange-50 p-2 rounded-lg">
+                            <span class="px-2 py-0.5 bg-white text-orange-600 text-[10px] font-bold rounded border border-orange-100 shadow-sm">MENU</span>
+                            <span class="text-sm text-gray-700 font-bold">꼬막 정식 (남도 별미)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item: Finish -->
+                <div class="relative pl-10">
+                    <div class="absolute left-0 top-1 w-10 h-10 bg-gray-800 text-white rounded-full border-4 border-white shadow-md flex items-center justify-center z-10">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="bg-gray-800 text-white p-5 rounded-xl shadow-lg">
+                        <h3 class="font-bold text-lg">도계로 이동 및 도착</h3>
+                        <p class="text-sm text-gray-300 mt-2">
+                            도계 도착 후 해산<br>
+                            즐거운 남해안 여행이 되셨길 바랍니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Video Curation Section (Yeosu Promo) -->
+        <section class="mb-10 px-5">
+             <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                <div class="p-4 border-b border-gray-100 flex items-center justify-between bg-gray-50">
+                    <h3 class="font-bold text-gray-800 flex items-center">
+                        <i class="fab fa-youtube text-red-500 mr-2 text-xl"></i> 여수 관광 홍보영상
+                    </h3>
+                    <span class="text-[10px] bg-red-100 text-red-600 px-2 py-1 rounded font-bold">HOT</span>
+                </div>
+                <!-- YouTube Embed (0z-sOws6FBE) -->
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/0z-sOws6FBE" 
+                            title="여수 관광 홍보영상" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="p-3 bg-white">
+                    <p class="text-xs text-gray-500">
+                        <i class="fas fa-info-circle mr-1"></i> "WITH US, WITH YEOSU" - 여수의 아름다움을 감상하세요.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Footer -->
+        <footer class="bg-gray-900 text-white p-6 rounded-t-3xl relative">
+            <div class="flex justify-center mb-6">
+                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" 
+                      alt="로고" class="h-6 brightness-0 invert opacity-50 grayscale hover:opacity-100 transition">
+            </div>
+            
+            <h3 class="text-lg font-bold mb-4 text-center">여행 문의 및 예약</h3>
+            
+            <!-- Contact Cards Grid -->
+            <div class="grid grid-cols-1 gap-3 mb-6">
+                <!-- Contact 1 -->
+                <div class="bg-gray-800 rounded-xl p-4 flex items-center border border-gray-700 hover:border-gray-500 transition">
+                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-lg font-bold shrink-0">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="ml-3 flex-grow">
+                        <p class="font-bold text-sm">정두영 담당자</p>
+                        <p class="text-blue-400 text-sm">010-3841-1361</p>
+                    </div>
+                    <a href="tel:01038411361" class="bg-white text-gray-900 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200 transition">
+                        <i class="fas fa-phone text-xs"></i>
+                    </a>
+                </div>
+                
+                <!-- Contact 2 -->
+                <div class="bg-gray-800 rounded-xl p-4 flex items-center border border-gray-700 hover:border-gray-500 transition">
+                    <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-lg font-bold shrink-0">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <div class="ml-3 flex-grow">
+                        <p class="font-bold text-sm">이재명 해외담당</p>
+                        <p class="text-indigo-400 text-sm">010-9443-7881</p>
+                    </div>
+                    <a href="tel:01094437881" class="bg-white text-gray-900 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200 transition">
+                        <i class="fas fa-phone text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Homepage Link (필수 요청사항: 박스 형태) -->
+            <a href="http://tourmaker.kr" target="_blank" class="block w-full bg-gray-700 hover:bg-gray-600 text-gray-300 text-center text-sm py-3 rounded-xl transition mb-6 shadow-md border border-gray-600">
+                <i class="fas fa-home mr-2"></i> 투어메이커 홈페이지 방문하기
+            </a>
+
+            <div class="text-center border-t border-gray-800 pt-6">
+                <p class="text-gray-500 text-xs">© Tourmaker. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
