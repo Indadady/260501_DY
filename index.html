@@ -14,13 +14,13 @@
 
     <title>투어메이커 - 남해안 2박 3일 명품 투어</title>
 
-    <!-- 구글 애널리틱스 (필요시 ID 수정) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- 구글 애널리틱스 (필수 적용) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLH9GD9SVR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-JLH9GD9SVR');
     </script>
 
     <!-- Tailwind CSS -->
@@ -35,7 +35,7 @@
             font-family: 'Noto Sans KR', sans-serif;
             background-color: #f8fafc;
             color: #1e293b;
-            -webkit-print-color-adjust: exact; /* 인쇄 시 배경색/이미지 출력 강제 */
+            -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
         .text-primary { color: #006494; }
@@ -61,7 +61,7 @@
         /* iframe 반응형 처리 */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 비율 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             background: #000;
@@ -75,56 +75,32 @@
             border: 0;
         }
 
-        /* [인쇄 전용 스타일] A4 출력 최적화 */
+        /* [인쇄 전용 스타일] */
         @media print {
-            @page {
-                size: A4;
-                margin: 10mm; /* 여백 최소화 */
-            }
-            body {
-                background-color: white;
-                font-size: 11pt; /* 글자 크기 조정 */
-            }
-            nav {
-                display: none !important; /* 상단 메뉴 숨김 */
-            }
-            .fixed {
-                position: static !important; /* 고정 위치 해제 */
-            }
-            .max-w-3xl, .max-w-md {
-                max-width: 100% !important; /* 너비 제한 해제 */
+            @page { size: A4; margin: 10mm; }
+            body { background-color: white; font-size: 11pt; }
+            nav { display: none !important; }
+            .fixed { position: static !important; }
+            .max-w-3xl {
+                max-width: 100% !important;
                 width: 100% !important;
                 box-shadow: none !important;
                 margin: 0 !important;
                 padding-top: 0 !important;
             }
-            .print\:hidden {
-                display: none !important;
-            }
-            .print\:block {
-                display: block !important;
-            }
-            /* 페이지 넘김 방지 */
-            .break-inside-avoid {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-            /* 인쇄 시 링크 밑줄 제거 */
+            .print\:hidden { display: none !important; }
+            .print\:block { display: block !important; }
+            .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
             a { text-decoration: none; color: black; }
-            
-            /* 타임라인 레이아웃 조정 */
-            .timeline-line {
-                left: 15px;
-            }
+            .timeline-line { left: 15px; }
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Navigation (인쇄 시 숨김) -->
+    <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm print:hidden">
         <div class="max-w-3xl mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- 로고 영역 -->
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" 
                  alt="투어메이커 로고" class="h-8 w-auto">
             <a href="tel:010-3841-1361" class="text-xs font-bold text-primary border border-primary px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition">
@@ -143,12 +119,16 @@
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
             <div class="absolute bottom-0 left-0 w-full p-6 text-white">
                 <div class="flex items-center space-x-2 mb-2">
-                    <span class="bg-blue-600 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm print:border print:border-white">기획특가</span>
+                    <span id="dday-badge" class="bg-blue-600 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm animate-pulse print:border print:border-white">
+                        D-Day 계산중...
+                    </span>
                     <span class="bg-white/20 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded print:text-white">2박 3일</span>
                 </div>
-                <h1 class="text-3xl font-black leading-tight mb-2 drop-shadow-md print:text-black print:text-4xl print:shadow-none print:drop-shadow-none" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">남해안 명품 미식<br>낭만 힐링 투어</h1>
-                <div class="flex items-center text-sm font-medium">
-                    <i class="far fa-calendar-check text-yellow-400 mr-2 print:text-black"></i> 2026. 05. 02(토) 출발
+                <h1 id="hero-title" class="text-3xl font-black leading-tight mb-2 drop-shadow-md print:text-black print:text-4xl print:shadow-none print:drop-shadow-none" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    남해안 명품 미식<br>낭만 힐링 투어
+                </h1>
+                <div id="hero-date" class="flex items-center text-sm font-medium print:text-black">
+                    <i class="far fa-calendar-check text-yellow-400 mr-2 print:text-black"></i> 2026. 05. 02(토) ~ 05. 04(월)
                 </div>
             </div>
         </header>
@@ -165,10 +145,10 @@
                 </div>
                 <div class="flex flex-col items-center border-l border-r border-gray-100 print:border-gray-300">
                     <div class="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center mb-2 text-indigo-600 print:bg-gray-100">
-                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <span class="text-xs text-gray-400 print:text-black">식사</span>
-                    <span class="font-bold text-sm">특식 포함</span>
+                    <span class="text-xs text-gray-400 print:text-black">인원</span>
+                    <span class="font-bold text-sm">37명 확정</span>
                 </div>
                 <div class="flex flex-col items-center">
                     <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center mb-2 text-green-600 print:bg-gray-100">
@@ -180,21 +160,70 @@
             </div>
         </section>
 
-        <!-- ★ Price Info Section (요금안내 반영) -->
+        <!-- ★ Price Info Section (37명 확정 금액 반영) -->
         <section class="px-5 mb-8 print:mb-4 break-inside-avoid">
-            <div class="bg-gradient-to-r from-blue-900 to-indigo-800 rounded-xl shadow-lg p-5 text-white border border-blue-800 print:bg-white print:border-2 print:border-black print:text-black print:shadow-none">
-                <div class="flex justify-between items-center">
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-800 rounded-xl shadow-lg p-5 text-white border border-blue-800 relative overflow-hidden print:bg-white print:border-2 print:border-black print:text-black print:shadow-none">
+                <!-- 장식용 배경 아이콘 -->
+                <i class="fas fa-won-sign absolute right-0 -bottom-4 text-7xl text-white opacity-5 print:hidden"></i>
+                
+                <div class="flex justify-between items-start relative z-10">
                     <div>
-                        <h3 class="font-bold text-sm text-blue-200 print:text-gray-600">특별 기획 여행 요금 (1인)</h3>
-                        <p class="text-4xl font-black mt-1">580,000<span class="text-lg font-medium ml-1">원</span></p>
-                    </div>
-                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center print:hidden">
-                        <i class="fas fa-won-sign text-2xl"></i>
+                        <div class="flex items-center gap-2 mb-1">
+                            <h3 class="font-bold text-sm text-blue-200 print:text-gray-600">확정 총 행사 경비</h3>
+                            <span class="bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded-full border border-blue-500 print:border-black print:text-black print:bg-white">37명 기준</span>
+                        </div>
+                        <p class="text-4xl font-black mt-1">21,460,000<span class="text-lg font-medium ml-1">원</span></p>
+                        <p class="text-sm font-medium mt-1.5 text-blue-100 print:text-gray-700 bg-blue-900/50 inline-block px-2 py-1 rounded">
+                            (1인 단가: 580,000원 × 37명)
+                        </p>
                     </div>
                 </div>
-                <div class="mt-4 pt-3 border-t border-white/20 text-xs text-blue-100 print:text-gray-600 print:border-gray-300 font-medium leading-relaxed">
-                    <i class="fas fa-check-circle mr-1 text-yellow-400 print:text-black"></i> 전 일정 식사(여수 한일관 한정식 등 특식 포함)<br>
+                <div class="mt-4 pt-3 border-t border-white/20 text-xs text-blue-100 print:text-gray-600 print:border-gray-300 font-medium leading-relaxed relative z-10">
+                    <i class="fas fa-check-circle mr-1 text-yellow-400 print:text-black"></i> 전 일정 식사 (여수 한일관 한정식 등 특식 포함)<br>
                     <i class="fas fa-check-circle mr-1 text-yellow-400 print:text-black"></i> 전 일정 숙박비, 차량비, 요트투어 및 관광지 입장료 일체 포함
+                </div>
+            </div>
+        </section>
+
+        <!-- ESG 실천 대시보드 (37명 환산) -->
+        <section class="px-5 mb-8 print:mb-4 break-inside-avoid">
+            <div class="bg-green-50 border border-green-200 rounded-xl p-5 print:border-2 print:border-black">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-leaf text-green-600 text-xl mr-2 print:text-black"></i>
+                    <h3 class="font-bold text-green-800 print:text-black">ESG 환경 보호 실천 대시보드 (37명 기준)</h3>
+                </div>
+                <div class="grid grid-cols-3 gap-2 mb-4 text-center">
+                    <div class="bg-white p-2 rounded-lg shadow-sm print:border print:border-gray-300">
+                        <i class="fas fa-file-alt text-gray-400 mb-1"></i>
+                        <p class="text-xs text-gray-500">종이 절감</p>
+                        <p class="font-bold text-green-700">296장</p>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg shadow-sm print:border print:border-gray-300">
+                        <i class="fas fa-smog text-gray-400 mb-1"></i>
+                        <p class="text-xs text-gray-500">탄소 감축</p>
+                        <p class="font-bold text-green-700">1.4kg</p>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg shadow-sm print:border print:border-gray-300">
+                        <i class="fas fa-tint text-blue-400 mb-1"></i>
+                        <p class="text-xs text-gray-500">물 절약</p>
+                        <p class="font-bold text-blue-600">2,775L</p>
+                    </div>
+                </div>
+                <p class="text-xs text-green-700 leading-relaxed print:text-gray-700">
+                    본 행사는 스마트 가이드북 도입을 통해 참여 인원 비례 약 1.5그루의 나무를 심는 효과를 거두었으며, 디지털 전환(DX)을 통한 공공부문 에너지 절약 실천의 모범 사례입니다.
+                </p>
+            </div>
+        </section>
+        
+        <!-- 날씨 위젯 -->
+        <section class="px-5 mb-8 print:hidden break-inside-avoid" id="weather-section">
+            <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-5">
+                <h3 class="font-bold text-gray-800 mb-3"><i class="fas fa-cloud-sun text-blue-400 mr-2"></i>현지 주간 날씨 (여수 기준)</h3>
+                <div id="weather-container" class="flex overflow-x-auto hide-scrollbar gap-2 pb-2">
+                    <div class="text-sm text-gray-500 animate-pulse">날씨 정보를 불러오는 중...</div>
+                </div>
+                <div class="mt-3 text-xs text-gray-500 bg-gray-50 p-2 rounded">
+                    <i class="fas fa-tshirt mr-1"></i> 현지 기후 및 실내외 기온차를 고려하여 얇은 겉옷을 준비해 주세요.
                 </div>
             </div>
         </section>
@@ -257,7 +286,6 @@
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 group hover-card print:shadow-none print:border print:border-gray-300">
                         <div class="relative h-48 overflow-hidden bg-gray-200">
-                            <!-- 정글돔 이미지 업데이트 -->
                             <img src="https://tse1.mm.bing.net/th/id/OIP.TUo-h3UFch3AOLeoxa1lbgHaHa?w=474&h=474&c=7&p=0" 
                                  alt="거제 식물원 정글돔" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         </div>
@@ -413,15 +441,14 @@
                         <i class="fas fa-leaf"></i>
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-md bg-white border border-gray-100 group hover-card print:shadow-none print:border print:border-gray-300">
-                        <!-- 영상으로 대체 (V8takQfBJgY) - 인쇄 시 숨김 -->
+                        <!-- 영상 -->
                         <div class="video-container print:hidden">
-                            <iframe src="https://www.youtube.com/embed/V8takQfBJgY" 
+                            <iframe src="https://www.youtube.com/embed/V8takQfBJgY?controls=1" 
                                     title="순천만국가정원 홍보영상" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                     allowfullscreen>
                             </iframe>
                         </div>
-                        <!-- 인쇄 시 보여질 고화질 썸네일 -->
                         <img src="https://img.youtube.com/vi/V8takQfBJgY/maxresdefault.jpg" 
                              alt="순천만국가정원 썸네일" 
                              class="hidden print:block w-full h-auto object-cover border-b border-gray-200">
@@ -493,15 +520,13 @@
                     </h3>
                     <span class="text-[10px] bg-red-100 text-red-600 px-2 py-1 rounded font-bold print:bg-white print:border print:border-gray-300 print:text-black">HOT</span>
                 </div>
-                <!-- YouTube Embed (0z-sOws6FBE) - 인쇄 시 숨김 -->
                 <div class="video-container print:hidden">
-                    <iframe src="https://www.youtube.com/embed/0z-sOws6FBE" 
+                    <iframe src="https://www.youtube.com/embed/0z-sOws6FBE?controls=1" 
                             title="여수 관광 홍보영상" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                     </iframe>
                 </div>
-                <!-- 인쇄 시 보여질 고화질 썸네일 -->
                 <img src="https://img.youtube.com/vi/0z-sOws6FBE/maxresdefault.jpg" 
                      alt="여수 관광 홍보영상 썸네일" 
                      class="hidden print:block w-full h-auto object-cover border-b border-gray-200">
@@ -517,16 +542,13 @@
         <!-- Contact Footer -->
         <footer class="bg-gray-900 text-white p-6 rounded-t-3xl relative print:bg-white print:text-black print:border-t-2 print:border-black break-inside-avoid">
             <div class="flex justify-center mb-6">
-                 <!-- 투어메이커 메인 로고 -->
                  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" 
                       alt="투어메이커 로고" class="h-8 brightness-0 invert hover:opacity-100 transition print:filter-none print:opacity-100">
             </div>
             
             <h3 class="text-lg font-bold mb-4 text-center">여행 문의 및 예약</h3>
             
-            <!-- Contact Cards Grid -->
             <div class="grid grid-cols-2 gap-3 mb-6 print:grid-cols-2">
-                <!-- Contact 1 -->
                 <div class="bg-gray-800 rounded-xl p-4 flex items-center border border-gray-700 hover:border-gray-500 transition print:bg-white print:border print:border-gray-300">
                     <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-lg font-bold shrink-0 print:bg-gray-200 print:text-black">
                         <i class="fas fa-user-tie"></i>
@@ -537,19 +559,18 @@
                     </div>
                 </div>
                 
-                <!-- Contact 2 -->
                 <div class="bg-gray-800 rounded-xl p-4 flex items-center border border-gray-700 hover:border-gray-500 transition print:bg-white print:border print:border-gray-300">
                     <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-lg font-bold shrink-0 print:bg-gray-200 print:text-black">
                         <i class="fas fa-globe-asia"></i>
                     </div>
                     <div class="ml-3 flex-grow">
-                        <p class="font-bold text-sm print:text-black">이재명 해외담당</p>
+                        <p class="font-bold text-sm print:text-black">이재명 담당</p>
                         <p class="text-indigo-400 text-sm font-bold print:text-black">010-9443-7881</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Homepage Link (박스 형태) -->
+            <!-- Homepage Link -->
             <a href="http://tourmaker.kr" target="_blank" class="block w-full bg-gray-700 hover:bg-gray-600 text-gray-200 text-center font-bold text-sm py-4 rounded-xl transition mb-6 shadow-md border border-gray-600 print:bg-white print:border-black print:text-black print:border-2">
                 <i class="fas fa-home mr-2"></i> 투어메이커 홈페이지 방문하기
             </a>
@@ -564,5 +585,84 @@
 
     </div>
 
+    <!-- 기능 스크립트 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            /* 1. D-Day 및 Hero 텍스트 상태 변경 로직 */
+            const startDate = new Date('2026-05-02T00:00:00+09:00');
+            const endDate = new Date('2026-05-04T23:59:59+09:00');
+            const today = new Date();
+            
+            const badgeEl = document.getElementById('dday-badge');
+            const titleEl = document.getElementById('hero-title');
+            const dateEl = document.getElementById('hero-date');
+
+            if (today < startDate) {
+                const diffTime = startDate - today;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                badgeEl.innerHTML = `D-${diffDays}`;
+                badgeEl.className = 'bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm animate-pulse print:border print:border-white';
+            } else if (today >= startDate && today <= endDate) {
+                const currentDay = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+                badgeEl.innerHTML = `📍 ${currentDay}일차 진행중`;
+                badgeEl.className = 'bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm animate-pulse print:border print:border-white';
+                titleEl.innerHTML = `현재 <strong>투어메이커 고객님</strong>의<br><strong>${currentDay}</strong>일차 여정이 활기차게<br>진행되고 있습니다.`;
+            } else {
+                badgeEl.innerHTML = `🏁 여정 종료`;
+                badgeEl.className = 'bg-gray-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm print:border print:border-white';
+                dateEl.innerHTML = `모든 여정이 종료되었습니다.<br>좋은 추억으로 오래 간직되길 바랍니다.`;
+                titleEl.style.display = 'none';
+            }
+
+            /* 2. 여수 날씨 연동 (Open-Meteo) */
+            // 여수 좌표: 위도 34.7604, 경도 127.6622
+            fetch('https://api.open-meteo.com/v1/forecast?latitude=34.7604&longitude=127.6622&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FSeoul')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('weather-container');
+                container.innerHTML = '';
+                
+                const wmoCodes = {
+                    0: {icon: 'fa-sun', color: 'text-yellow-500', name: '맑음'},
+                    1: {icon: 'fa-cloud-sun', color: 'text-yellow-400', name: '대체로 맑음'},
+                    2: {icon: 'fa-cloud', color: 'text-gray-400', name: '구름조금'},
+                    3: {icon: 'fa-cloud', color: 'text-gray-500', name: '흐림'},
+                    45: {icon: 'fa-smog', color: 'text-gray-400', name: '안개'},
+                    48: {icon: 'fa-smog', color: 'text-gray-400', name: '안개'},
+                    51: {icon: 'fa-cloud-rain', color: 'text-blue-400', name: '이슬비'},
+                    61: {icon: 'fa-cloud-showers-heavy', color: 'text-blue-500', name: '비'},
+                    71: {icon: 'fa-snowflake', color: 'text-blue-200', name: '눈'},
+                    95: {icon: 'fa-bolt', color: 'text-purple-500', name: '뇌우'}
+                };
+
+                for(let i=0; i<7; i++) {
+                    const dateRaw = data.daily.time[i];
+                    const dateObj = new Date(dateRaw);
+                    const days = ['일', '월', '화', '수', '목', '금', '토'];
+                    const dayName = days[dateObj.getDay()];
+                    const dateStr = `${dateObj.getMonth()+1}/${dateObj.getDate()}`;
+                    
+                    const code = data.daily.weathercode[i];
+                    const wInfo = wmoCodes[code] || wmoCodes[0];
+                    const maxT = Math.round(data.daily.temperature_2m_max[i]);
+                    const minT = Math.round(data.daily.temperature_2m_min[i]);
+
+                    const card = document.createElement('div');
+                    card.className = 'flex-shrink-0 bg-gray-50 border border-gray-100 rounded-lg p-2 text-center w-20';
+                    card.innerHTML = `
+                        <div class="text-[10px] text-gray-500 font-bold">${dateStr} (${dayName})</div>
+                        <i class="fas ${wInfo.icon} ${wInfo.color} text-xl my-1.5"></i>
+                        <div class="text-xs font-bold">
+                            <span class="text-blue-500">${minT}°</span> / <span class="text-red-500">${maxT}°</span>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                }
+            })
+            .catch(error => {
+                document.getElementById('weather-container').innerHTML = '<div class="text-sm text-red-400">날씨 정보를 불러올 수 없습니다.</div>';
+            });
+        });
+    </script>
 </body>
 </html>
